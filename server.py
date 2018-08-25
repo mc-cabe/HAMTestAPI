@@ -208,4 +208,4 @@ def reset():
     return redirect('/')
 
 
-app.run(debug=True)      # Run the app in debug mode.
+app.run(debug=False)      # Run the app in debug mode.
