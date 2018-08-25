@@ -1,0 +1,95 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src=" https://code.jquery.com/jquery-3.2.1.slim.min.js "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js ">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js">
+  </script>
+  <link rel='stylesheet' type 'text/css' href="{{url_for('static',filename='css/styles.css')}}">
+  <script type='text/javascript' src="{{ url_for('static', filename = 'js/script.js')}}"></script>
+  <title>Ham Study guide</title>
+</head>
+
+<body>
+  <form action='/reset' method='post'>
+    <input type="submit" name="button" value="RESET" class="btn btn-default"></input>
+  </form>
+  <h1 class="text-center"> Top Score: {{top_score}} </h1>
+  <h2 class="text-center"> Current Score: {{current_score}} </h2>
+
+  <hr>
+  <div class="form-group container-fluid">
+    <h2 class="text-left text-info"> Category: {{category}} <h2>
+      <br>
+    <form action='/submit' method='post'>
+
+      <h2> Question # {{i +1}} <br> <br>{{question}} <hr><h2>
+      <div class="form-check">
+        <label>
+        <input type="radio" name="options" id="option1" value="A"> {{a}} </input></label><br>
+        <label>  <input type="radio" name="options" id="option2" value="B"> {{b}} </input></label><br>
+        <label>  <input type="radio" name="options" id="option3" value="C"> {{c}} </input></label><br>
+        <label>  <input type="radio" name="options" id="option4" value="D"> {{d}} </input></label><br>
+      </div><br>
+      <input type='submit' class="btn btn-primary" value='Submit'>
+    </form>
+
+    <br>
+
+
+    <h3> {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+
+      <p class = "text-{{category}}" id="msg">{{message}}</p>
+
+    {% endfor %} {% endif %} {% endwith %} </h3>
+  </div>
+<br><hr>
+  <div class="form-group container-fluid">
+
+    <h3>Change category</h3>
+      <form action='/change' method='post'>
+    <ol>
+    <li>  <label><button type='submit' class="btn btn-link" name="new_vals" value="0">Power circuits and hazards</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="11">'Antenna safety'</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="24">'RF hazards'</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="37">Amateur Radio Service</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="48">Authorized frequencies</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="60">Operator licensing</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="71">Authorized and prohibited transmission</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="82">Control operator and control types</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="93">Station identification</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="104">Station operation: choosing an operating frequency</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="116">VHF/UHF operating practices</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="130">Public service: emergency and non-emergency operations</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="142">Radio wave characteristics</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="155">Radio and electromagnetic wave properties</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="166">Propagation modes: line of sight</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="177"> Station setup</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="188">Operating controls</button></label><br></li>
+      <li><label><button type="submit" class="btn btn-link" name="new_vals" value="201">Electrical principles, units, and terms</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="215">Math for electronics</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="228">Electronic principles: capacitance; inductance</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="242">Ohms Law</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="258">Electrical components</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="269">Semiconductors</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="280">Circuit diagrams</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="293">Component functions</button></label><br></li>
+    <li>  <label><button type="submit" class="btn btn-link" name="new_vals" value="305">Station equipment</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="316">Common transmitter and receiver problems</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="328">Antenna measurements and troubleshooting</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="340">Basic repair and testing: soldering</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="352">Modulation modes: bandwidth of various signals</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="363">Amateur satellite operation</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="375">Operating activities: radio direction finding</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="400">Antennas, vertical and horizontal polarization</button></label><br></li>
+  <li>    <label><button type="submit" class="btn btn-link" name="new_vals" value="412">Feed lines: types, attenuation vs frequency, selecting</button></label><br></li>
+<ol>
+    </form>
+  </div>
+</body>
+
+</html>
