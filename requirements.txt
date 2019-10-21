@@ -66,6 +66,6 @@ six==1.4.1
 SQLAlchemy==1.1.14
 urllib3==1.23
 virtualenv==15.1.0
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 xattr==0.6.4
 zope.interface==4.1.1
