@@ -64,7 +64,7 @@ requests==2.19.1
 scipy==0.13.0b1
 six==1.4.1
 SQLAlchemy==1.1.14
-urllib3==1.23
+urllib3==1.26.5
 virtualenv==15.1.0
 Werkzeug==0.12.2
 xattr==0.6.4
